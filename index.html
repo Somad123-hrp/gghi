@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fanxz Hosting - Solusi Digital Terbaik</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variabel Warna */
+        :root {
+            --primary: #0a192f;
+            --secondary: #172a45;
+            --accent: #64ffda;
+            --text-light: #ccd6f6;
+            --text-dark: #8892b0;
+            --button-primary: #4CAF50;
+            --button-secondary: #2196F3;
+        }
+
+        /* Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animasi Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--primary) 0%, #0d2b5e 100%);
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(100, 255, 218, 0.1);
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-50px) translateX(20px);
+            }
+            50% {
+                transform: translateY(-100px) translateX(-30px);
+            }
+            75% {
+                transform: translateY(-50px) translateX(-20px);
+            }
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+            }
+            50% {
+                transform: scale(1.05);
+                text-shadow: 0 0 20px rgba(100, 255, 218, 0.8);
+            }
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--accent), #4CAF50);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Service Cards */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--secondary);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(100, 255, 218, 0.2);
+        }
+
+        .service-header {
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .service-header h2 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-header p {
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        .service-items {
+            padding: 1.5rem;
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .item-price {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .buy-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: var(--button-primary);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .buy-button:hover {
+            background: #3d8b40;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .backup-button {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            background: var(--button-secondary);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .backup-button:hover {
+            background: #0b7dda;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            margin-top: 3rem;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .footer-text {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .services-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .logo {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 2rem 1rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .service-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animasi Background -->
+    <div class="background-animation" id="background"></div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-server"></i>
+        </div>
+        <h1>Fanxz Hosting</h1>
+        <p class="subtitle">SOLUSI TERBAIK UNTUK KEBUTUHAN DIGITAL ANDA</p>
+    </header>
+
+    <!-- Services Section -->
+    <main class="services-container">
+        <!-- Panel Pterodactyl Privat -->
+        <div class="service-card">
+            <div class="service-header">
+                <h2>Panel Pterodactyl Privat</h2>
+                <p>Solusi hosting terbaik dengan harga terjangkau</p>
+            </div>
+            <div class="service-items">
+                <div class="service-item">
+                    <span class="item-name">1GB</span>
+                    <span class="item-price">Rp. 2.000</span>
+                </div>
+                <div class="service-item">
+                    <span class="item-name">2GB</span>
+                    <span class="item-price">Rp. 3.000</span>
+                </div>
+                <div class="service-item">
+                    <span class="item-name">3GB</span>
+                    <span class="item-price">Rp. 4.000</span>
+                </div>
+                <div class="service-item">
+                    <span class="item-name">4GB</span>
+                    <span class="item-price">Rp. 5.000</span>
+                </div>
+                <div class="service-item">
+                    <span class="item-name">5GB</span>
+                    <span class="item-price">Rp. 6.000</span>
+                </div>
+                <div class="service-item">
+                    <span class="item-name">7GB</span>
+                    <span class="item-price">Rp. 10.000</span>
+                </div>
+                <div class="service-item">
+                    <span class="item-name">10GB</span>
+                    <span class="item-price">Rp. 12.000</span>
+                </div>
+                <div class="service-item">
+                    <span class="item-name">UNLIMITED</span>
+                    <span class="item-price">Rp. 15.000</span>
+                </div>
+                <a href="https://wa.me/6285135366878?text=Halo%20saya%20ingin%20memesan%20Panel%20Pterodactyl%20Privat" class="buy-button">BELI SEKARANG</a>
+                <a href="https://wa.me/6287717251765?text=Halo%20saya%20ingin%20memesan%20Panel%20Pterodactyl%20Privat" class="backup-button">Cadangan WhatsApp</a>
+            </div>
+        </div>
+
+        <!-- RESS / Admin Panel Pterodactyl -->
+        <div class="service-card">
+            <div class="service-header">
+                <h2>RESS / Admin Panel Pterodactyl</h2>
+                <p>Panel khusus untuk kebutuhan administrasi</p>
+            </div>
+            <div class="service-items">
+                <div class="service-item">
+                    <span class="item-name">Reseller Panel</span>
+                    <span class="item-price">Rp. 10.000</span>
+                </div>
+                <div class="service-item">
+                    <span class="item-name">Admin Panel</span>
+                    <span class="item-price">Rp. 15.000</span>
+                </div>
+                <div class="service-item">
+                    <span class="item-name">PT Panel</span>
+                    <span class="item-price">Rp. 25.000</span>
+                </div>
+                <a href="https://wa.me/6285135366878?text=Halo%20saya%20ingin%20memesan%20RESS/Admin%20Panel%20Pterodactyl" class="buy-button">BELI SEKARANG</a>
+                <a href="https://wa.me/6287717251765?text=Halo%20saya%20ingin%20memesan%20RESS/Admin%20Panel%20Pterodactyl" class="backup-button">Cadangan WhatsApp</a>
+            </div>
+        </div>
+
+        <!-- Sell Script Bot -->
+        <div class="service-card">
+            <div class="service-header">
+                <h2>Sell Script Bot</h2>
+                <p>Solusi otomatisasi untuk bisnis Anda</p>
+            </div>
+            <div class="service-items">
+                <div class="service-item">
+                    <span class="item-name">Script Bot Topup</span>
+                    <span class="item-price">Rp. 10.000</span>
+                </div>
+                <div class="service-item">
+                    <span class="item-name">Script Create Panel Otomatis</span>
+                    <span class="item-price">Rp. 25.000</span>
+                </div>
+                <a href="https://wa.me/6285135366878?text=Halo%20saya%20ingin%20memesan%20Sell%20Script%20Bot" class="buy-button">BELI SEKARANG</a>
+                <a href="https://wa.me/6287717251765?text=Halo%20saya%20ingin%20memesan%20Sell%20Script%20Bot" class="backup-button">Cadangan WhatsApp</a>
+            </div>
+        </div>
+
+        <!-- Jasa Sewa Bot Pushkontak + JPM -->
+        <div class="service-card">
+            <div class="service-header">
+                <h2>Jasa Sewa Bot Pushkontak + JPM</h2>
+                <p>Layanan sewa bot untuk kebutuhan promosi</p>
+            </div>
+            <div class="service-items">
+                <div class="service-item">
+                    <span class="item-name">3 Hari</span>
+                    <span class="item-price">Rp. 5.000</span>
+                </div>
+                <div class="service-item">
+                    <span class="item-name">5 Hari</span>
+                    <span class="item-price">Rp. 12.000</span>
+                </div>
+                <a href="https://wa.me/6285135366878?text=Halo%20saya%20ingin%20memesan%20Jasa%20Sewa%20Bot%20Pushkontak%20%2B%20JPM" class="buy-button">BELI SEKARANG</a>
+                <a href="https://wa.me/6287717251765?text=Halo%20saya%20ingin%20memesan%20Jasa%20Sewa%20Bot%20Pushkontak%20%2B%20JPM" class="backup-button">Cadangan WhatsApp</a>
+            </div>
+        </div>
+
+        <!-- Jasa Pembuatan Website Store -->
+        <div class="service-card">
+            <div class="service-header">
+                <h2>Jasa Pembuatan Website Store</h2>
+                <p>Bangun website profesional untuk bisnis Anda</p>
+            </div>
+            <div class="service-items">
+                <div class="service-item">
+                    <span class="item-name">Web Hosting Biasa Reguler</span>
+                    <span class="item-price">Rp. 50.000</span>
+                </div>
+                <a href="https://wa.me/6285135366878?text=Halo%20saya%20ingin%20memesan%20Jasa%20Pembuatan%20Website%20Store" class="buy-button">BELI SEKARANG</a>
+                <a href="https://wa.me/6287717251765?text=Halo%20saya%20ingin%20memesan%20Jasa%20Pembuatan%20Website%20Store" class="backup-button">Cadangan WhatsApp</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p class="footer-text">© 2025 FANXZ STORE - ALL RIGHTS RESERVED</p>
+    </footer>
+
+    <!-- JavaScript untuk Animasi Background -->
+    <script>
+        // Membuat animasi bubble untuk background
+        document.addEventListener('DOMContentLoaded', function() {
+            const background = document.getElementById('background');
+            
+            for (let i = 0; i < 20; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                
+                // Ukuran random
+                const size = Math.random() * 120 + 20;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                
+                // Posisi random
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.top = `${Math.random() * 100}%`;
+                
+                // Animasi delay random
+                bubble.style.animationDelay = `${Math.random() * 15}s`;
+                
+                background.appendChild(bubble);
+            }
+        });
+    </script>
+</body>
+</html>
